@@ -2,10 +2,13 @@ package com.study.demo.controller;
 
 import com.study.demo.dto.LoginRequest;
 import com.study.demo.dto.LoginResponse;
+import com.study.demo.dto.MessageResponse;
 import com.study.demo.dto.UserRequest;
 import com.study.demo.dto.UserResponse;
+import com.study.demo.security.JwtBlacklistService;
 import com.study.demo.security.JwtTokenProvider;
 import com.study.demo.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +16,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,6 +27,7 @@ public class AuthController {
 
     private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider tokenProvider;
+    private final JwtBlacklistService jwtBlacklistService;
     private final UserService userService;
 
     @PostMapping("/login")
@@ -59,5 +64,16 @@ public class AuthController {
     @GetMapping("/me")
     public ResponseEntity<UserResponse> getCurrentUser() {
         return ResponseEntity.ok(userService.getCurrentUser());
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<MessageResponse> logout(HttpServletRequest request) {
+        String bearerToken = request.getHeader("Authorization");
+        if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
+            String token = bearerToken.substring(7);
+            jwtBlacklistService.blacklist(token);
+        }
+        SecurityContextHolder.clearContext();
+        return ResponseEntity.ok(new MessageResponse("Logout successfully"));
     }
 }

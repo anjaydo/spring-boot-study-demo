@@ -1,5 +1,6 @@
 package com.study.demo.controller;
 
+import com.study.demo.dto.MessageResponse;
 import com.study.demo.dto.UserRequest;
 import com.study.demo.dto.UserResponse;
 import com.study.demo.service.UserService;
@@ -40,9 +41,9 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<MessageResponse> delete(@PathVariable Long id) {
         userService.deleteById(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(new MessageResponse("Delete user successfully"));
     }
 
     @GetMapping("/me")

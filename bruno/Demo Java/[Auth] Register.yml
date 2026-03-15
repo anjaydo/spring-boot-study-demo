@@ -5,13 +5,17 @@ info:
 
 http:
   method: POST
-  url: http://localhost:8080/api/auth/login
+  url: http://localhost:8080/api/auth/register
   body:
     type: json
     data: |-
       {
-        "username": "john",
-        "password": "123456"
+        "username": "stevie",
+        "password": "12345678",
+        "name": "Stevie Doe",
+        "address": "Da Nang",
+        "gender": "MALE",
+        "dateOfBirth": "1990-01-15"
       }
   auth: inherit
 
