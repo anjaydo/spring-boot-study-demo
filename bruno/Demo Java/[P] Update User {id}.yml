@@ -1,0 +1,28 @@
+info:
+  name: "[P] Update User {id}"
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: http://localhost:8080/api/users/2
+  body:
+    type: json
+    data: |-
+      {
+        "id": 2,
+        "username": "stevie",
+        "name": "Stevie Hoang",
+        "address": "Da Nang",
+        "gender": "MALE",
+        "dateOfBirth": "1990-01-15",
+        "createdAt": "2026-03-15T18:38:54.3850363",
+        "updatedAt": "2026-03-15T18:38:54.3850363"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

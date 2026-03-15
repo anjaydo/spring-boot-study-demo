@@ -1,0 +1,27 @@
+info:
+  name: "[C] User"
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: http://localhost:8080/api/users
+  body:
+    type: json
+    data: |-
+      
+      {
+        "username": "stevie123",
+        "password": "12345678",
+        "name": "Stevie Doe",
+        "address": "Da Nang",
+        "gender": "MALE",
+        "dateOfBirth": "1990-01-15"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

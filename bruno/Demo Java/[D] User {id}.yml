@@ -1,0 +1,28 @@
+info:
+  name: "[D] User {id}"
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: http://localhost:8080/api/users/3
+  body:
+    type: json
+    data: |-
+      {
+        "id": 2,
+        "username": "stevie",
+        "name": "Stevie Hoang",
+        "address": "Da Nang",
+        "gender": "MALE",
+        "dateOfBirth": "1990-01-15",
+        "createdAt": "2026-03-15T18:38:54.3850363",
+        "updatedAt": "2026-03-15T18:38:54.3850363"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
