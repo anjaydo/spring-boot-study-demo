@@ -1,11 +1,11 @@
 info:
-  name: "[G] User {id}"
+  name: "[G] Hello"
   type: http
-  seq: 6
+  seq: 11
 
 http:
   method: GET
-  url: http://localhost:8080/v1/user/1
+  url: http://localhost:8080/v1/hello
   auth: inherit
 
 settings:

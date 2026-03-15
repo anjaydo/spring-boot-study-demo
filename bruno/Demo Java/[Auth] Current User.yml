@@ -5,7 +5,7 @@ info:
 
 http:
   method: GET
-  url: http://localhost:8080/api/auth/me
+  url: http://localhost:8080/v1/auth/me
   auth:
     type: bearer
     token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huIiwiaWF0IjoxNzczNTc1MDkyLCJleHAiOjE3NzM2NjE0OTJ9.60xRtRrkdOdDdvhNj-XLJAb_otbSaVmYglHeaCP9meA
