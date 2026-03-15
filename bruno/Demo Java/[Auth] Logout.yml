@@ -5,7 +5,7 @@ info:
 
 http:
   method: POST
-  url: http://localhost:8080/v1/auth/logout
+  url: http://localhost:8002/v1/auth/logout
   auth:
     type: bearer
     token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huIiwiaWF0IjoxNzczNTc1MDkyLCJleHAiOjE3NzM2NjE0OTJ9.60xRtRrkdOdDdvhNj-XLJAb_otbSaVmYglHeaCP9meA
